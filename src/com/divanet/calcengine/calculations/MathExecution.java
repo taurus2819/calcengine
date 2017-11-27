@@ -5,18 +5,45 @@ public class MathExecution {
     private double val1;
     private double val2;
     private char opcode;
+    private double result = 0.0;
 
-    public MathExecution(double val1, double val2, char opcode){
+    public MathExecution(){
+    }
+
+    public double getVal1() {
+        return val1;
+    }
+
+    public void setVal1(double val1) {
         this.val1 = val1;
+    }
+
+    public double getVal2() {
+        return val2;
+    }
+
+    public void setVal2(double val2) {
         this.val2 = val2;
+    }
+
+    public char getOpcode() {
+        return opcode;
+    }
+
+    public void setOpcode(char opcode) {
         this.opcode = opcode;
     }
 
-    public double execute(){
-        double result = 0.0;
+    public double getResult() {
+        result = execute();
+        return result;
+    }
+
+    private double execute(){
+
         switch (this.opcode){
             case 'a':
-                result = val1 + val2;
+                this.result = val1 + val2;
                 break;
             case 's':
                 result = val1 - val2;
