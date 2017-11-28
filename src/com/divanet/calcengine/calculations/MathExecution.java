@@ -5,6 +5,7 @@ public class MathExecution {
     private double val1;
     private double val2;
     private char opcode;
+    private double result;
 
     public MathExecution(double val1, double val2, char opcode){
         this.val1 = val1;
@@ -12,7 +13,12 @@ public class MathExecution {
         this.opcode = opcode;
     }
 
-    public double execute(){
+    public double getResult() {
+        result = execute();
+        return result;
+    }
+
+    private double execute(){
         double result = 0.0;
         switch (this.opcode){
             case 'a':

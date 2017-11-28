@@ -14,7 +14,7 @@ public class Main {
         equations[3] = new MathExecution(11.0d, 3.0d, 'm');
 
         for (MathExecution eqtn : equations) {
-            System.out.println(eqtn.execute());
+            System.out.println(eqtn.getResult());
         }
 
     }
