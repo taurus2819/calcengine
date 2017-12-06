@@ -2,38 +2,80 @@ package com.divanet.calcengine.calculations;
 
 public class MathExecution {
 
-    private double val1;
-    private double val2;
+    private double leftVal;
+    private double rightVal;
     private char opcode;
     private double result;
 
-    public MathExecution(double val1, double val2, char opcode){
-        this.val1 = val1;
-        this.val2 = val2;
+    public MathExecution(){
+
+    }
+
+    public MathExecution(char opcode){
         this.opcode = opcode;
     }
 
-    public double getResult() {
-        result = execute();
-        return result;
+    public MathExecution(double leftVal, double rightVal, char opcode){
+        this(opcode);
+        this.leftVal = leftVal;
+        this.rightVal = rightVal;
+//        this.opcode = opcode;
     }
 
-    private double execute(){
+    public double getLeftVal() {
+        return leftVal;
+    }
+
+    public void setLeftVal(double leftVal) {
+        this.leftVal = leftVal;
+    }
+
+    public double getRightVal() {
+        return rightVal;
+    }
+
+    public void setRightVal(double rightVal) {
+        this.rightVal = rightVal;
+    }
+
+    public char getOpcode() {
+        return opcode;
+    }
+
+    public void setOpcode(char opcode) {
+        this.opcode = opcode;
+    }
+
+    public double execute(double leftVal, double rightVal ){
+        this.leftVal = leftVal;
+        this.rightVal = rightVal;
+        result = execute();
+        return  result;
+    }
+
+    public double execute(int leftVal, int rightVal ){
+        this.leftVal = leftVal;
+        this.rightVal = rightVal;
+        result = (int)execute();
+        return  result;
+    }
+
+    public double execute(){
         double result = 0.0;
         switch (this.opcode){
             case 'a':
-                result = val1 + val2;
+                result = leftVal + rightVal;
                 break;
             case 's':
-                result = val1 - val2;
+                result = leftVal - rightVal;
                 break;
             case 'm':
-                result = val1 * val2;
+                result = leftVal * rightVal;
                 break;
             case 'd':
-                result = val2 != 0.0 ? val1 / val2 : 0.0;
-//                if(val2 != 0.0){
-//                    result = val1/val2;
+                result = rightVal != 0.0 ? leftVal / rightVal : 0.0;
+//                if(rightVal != 0.0){
+//                    result = leftVal/rightVal;
 //                }
 //                else{
 //                    result = 0.0;

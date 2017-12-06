@@ -14,8 +14,22 @@ public class Main {
         equations[3] = new MathExecution(11.0d, 3.0d, 'm');
 
         for (MathExecution eqtn : equations) {
-            System.out.println(eqtn.getResult());
+            System.out.println(eqtn.execute());
         }
+
+        //overloading the constructors and overloading methods
+        System.out.println("Overloading the constructors and Overloading methods");
+
+        double leftDouble = 9.0d;
+        double rightDouble = 4.0d;
+        MathExecution eqnOverloaded = new MathExecution('d');
+        System.out.println(eqnOverloaded.execute(leftDouble, rightDouble));
+
+        int leftInt = 9;
+        int rightInt = 4;
+        System.out.println(eqnOverloaded.execute(leftInt, rightInt));
+
+        System.out.println(eqnOverloaded.execute((double)leftInt, rightInt));
 
     }
 }
