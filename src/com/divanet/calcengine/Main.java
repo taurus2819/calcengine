@@ -1,6 +1,6 @@
 package com.divanet.calcengine;
 
-import com.divanet.calcengine.calculations.MathExecution;
+import com.divanet.calcengine.calculations.*;
 import com.divanet.calcengine.util.InputHelper;
 
 public class Main {
@@ -30,6 +30,27 @@ public class Main {
         System.out.println(eqnOverloaded.execute(leftInt, rightInt));
 
         System.out.println(eqnOverloaded.execute((double)leftInt, rightInt));
+
+        System.out.println("\n");
+        System.out.println("Inheritance operation ");
+        System.out.println("\n");
+
+        CalculateBase[] calculators = {
+                new Adder(25.0d, 92.0d ),
+                new Subtractor(255.0d, 17.0d),
+                new Divider(100.0d, 50.0d),
+                new Multiplier(11.0d, 3.0d)
+        };
+
+        for(CalculateBase calculate : calculators){
+            calculate.calculate();
+            System.out.println(calculate.getResult());
+        }
+
+//        for(CalculateBase calculate : calculators){
+//            System.out.println(calculate.getResult());
+//        }
+
 
     }
 }
