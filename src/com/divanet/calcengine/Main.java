@@ -58,6 +58,8 @@ public class Main {
         String[] ops = {
                 "add 25.0 92.0",
                 "subtract 255.0 17.0",
+                "division 100.0 50.0",
+                "multiplication 11.0 3.0",
         };
 
         CalculateHelper calcHelper = new CalculateHelper();
