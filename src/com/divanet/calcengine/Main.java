@@ -51,6 +51,20 @@ public class Main {
 //            System.out.println(calculate.getResult());
 //        }
 
+        System.out.println("\n");
+        System.out.println("Data Types - String classs");
+        System.out.println("\n");
+
+        String[] ops = {
+                "add 25.0 92.0",
+                "subtract 255.0 17.0",
+        };
+
+        CalculateHelper calcHelper = new CalculateHelper();
+        for(String calculate : ops){
+            calcHelper.process(calculate);
+            System.out.println(calcHelper);
+        }
 
     }
 }
