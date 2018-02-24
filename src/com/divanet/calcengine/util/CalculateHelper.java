@@ -1,4 +1,6 @@
-package com.divanet.calcengine.calculations;
+package com.divanet.calcengine.util;
+
+import com.divanet.calcengine.calculations.*;
 
 public class CalculateHelper {
     MathOperation operation;

@@ -1,6 +1,7 @@
-package com.divanet.calcengine;
+package com.divanet.myapp;
 
 import com.divanet.calcengine.calculations.*;
+import com.divanet.calcengine.util.CalculateHelper;
 import com.divanet.calcengine.util.InputHelper;
 
 public class Main {

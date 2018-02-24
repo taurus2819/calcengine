@@ -7,7 +7,7 @@ public class InvalidStatementException extends Exception {
     }
 
     public InvalidStatementException(String operation, String statement, Throwable cause){
-        super(operation, cause);
+        super(operation + " : " + statement, cause);
     }
 
 
