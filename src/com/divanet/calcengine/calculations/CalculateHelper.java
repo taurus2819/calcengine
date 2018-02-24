@@ -8,14 +8,24 @@ public class CalculateHelper {
 
     public CalculateHelper(){}
 
-    public void process(String info){
+    public void process(String info) throws InvalidStatementException {
         try {
             String[] part = info.split(" ");
+            if(part.length != 3){
+                throw new InvalidStatementException("Incorrect number of fields", info);
+            }
             String command = part[0];
-            this.leftValue = Double.parseDouble(part[1]);
-            this.rightValue = Double.parseDouble(part[2]);
+            try {
+                this.leftValue = Double.parseDouble(part[1]);
+                this.rightValue = Double.parseDouble(part[2]);
+            } catch (NumberFormatException e) {
+                throw new InvalidStatementException("Non numeric data", info, e);
+            }
 
             setCalcOperation(command);
+            if(this.operation == null){
+                throw new InvalidStatementException("Non existent calc operation" , command);
+            }
 
             CalculateBase calculator = null;
             switch (this.operation){

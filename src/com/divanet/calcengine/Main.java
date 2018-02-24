@@ -56,6 +56,9 @@ public class Main {
         System.out.println("\n");
 
         String[] ops = {
+                "add 1.0",
+                "add xx 1.0",
+                "addx 3.0 1.0",
                 "add 25.0 92.0",
                 "subtract 255.0 17.0",
                 "division 100.0 50.0",
@@ -64,8 +67,15 @@ public class Main {
 
         CalculateHelper calcHelper = new CalculateHelper();
         for(String calculate : ops){
-            calcHelper.process(calculate);
-            System.out.println(calcHelper);
+            try {
+                calcHelper.process(calculate);
+                System.out.println(calcHelper);
+            } catch (InvalidStatementException e) {
+                System.out.println(e.getMessage());
+                if(e.getCause() != null){
+                    System.out.println("  Original Exception : " + e.getCause().getMessage());
+                }
+            }
         }
 
     }
