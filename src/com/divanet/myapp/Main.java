@@ -2,6 +2,7 @@ package com.divanet.myapp;
 
 import com.divanet.calcengine.calculations.*;
 import com.divanet.calcengine.util.CalculateHelper;
+import com.divanet.calcengine.util.DynamicHelper;
 import com.divanet.calcengine.util.InputHelper;
 
 public class Main {
@@ -78,6 +79,41 @@ public class Main {
                 }
             }
         }
+
+        System.out.println("\n");
+        System.out.println("Dynamic calc operations - interfaces");
+        System.out.println("\n");
+
+        String[] calcOps = {
+                "add 25.0 92.0",
+                "add xx 1.0",
+                "addx 3.0 1.0",
+                "power 5.0 2.0",
+                "add 40.0 44.0"
+        };
+
+        for (String calculation : calcOps) {
+            DynamicHelper dynHelper = new DynamicHelper(new MathProcessing[]{
+                    new Adder(),
+                    new Power()
+            });
+            try {
+                System.out.println(dynHelper.processCalcOperations(calculation));
+            } catch (InvalidStatementException e) {
+                System.out.println(e.getMessage());
+                if(e.getCause() != null){
+                    System.out.println("...cause is " + e.getCause().getMessage());
+                }
+            }
+        }
+
+
+
+
+
+
+
+
 
     }
 }
